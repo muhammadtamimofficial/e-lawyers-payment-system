@@ -1,0 +1,131 @@
+/* General Styles */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: #f0f4ff; /* Light blue background */
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333; /* Dark grey for contrast */
+}
+
+/* Form Container */
+form {
+    background: #ffffff; /* White background for the form */
+    border-radius: 20px;
+    padding: 40px;
+    width: 400px;
+    box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    color: #333;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+form h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #004080; /* Blue for the form heading */
+    font-size: 28px;
+}
+
+/* Floating Labels with Blue Accents */
+.input-container {
+    position: relative;
+    margin-bottom: 35px;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 5px;
+}
+
+.input-container input {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.2); /* Light grey underline */
+    background: transparent;
+    color: #333;
+    font-size: 18px;
+    transition: border-bottom 0.3s ease-in-out;
+}
+
+.input-container input:focus, .input-container input:not(:placeholder-shown) {
+    border-bottom: 2px solid #004080; /* Blue focus color */
+    outline: none;
+}
+
+.input-container label {
+    color: rgba(0, 0, 0, 0.5); /* Light grey label */
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+}
+
+.input-container input:focus + label, 
+.input-container input:not(:placeholder-shown) + label {
+    font-size: 14px;
+    color: #004080; /* Blue color when label floats */
+    transform: translateY(-25px);
+}
+
+/* Submit Button */
+button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 50px;
+    background: #004080; /* Blue button */
+    font-size: 18px;
+    color: #fff; /* White text */
+    cursor: pointer;
+    transition: all 0.4s ease;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+button:hover {
+    background: #0059b3; /* Lighter blue hover effect */
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    form {
+        width: 90%;
+        padding: 30px;
+    }
+
+    form h1 {
+        font-size: 22px;
+    }
+
+    button {
+        font-size: 16px;
+        padding: 12px;
+    }
+
+    input {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    form {
+        width: 95%;
+        padding: 20px;
+    }
+
+    form h1 {
+        font-size: 18px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    input {
+        font-size: 14px;
+    }
+}

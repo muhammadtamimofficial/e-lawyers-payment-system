@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment with VAT</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <h1>Payment Form with VAT</h1>
+    <form id="paymentForm">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="phone">Phone:</label><br>
+        <input type="text" id="phone" name="phone" required><br><br>
+
+        <label for="amount">Payment Amount (in $):</label><br>
+        <input type="number" id="amount" name="amount" required><br><br>
+
+        <label for="vat">VAT (2%):</label><br>
+        <input type="number" id="vat" name="vat" readonly><br><br>
+
+        <label for="total">Total Amount:</label><br>
+        <input type="number" id="total" name="total" readonly><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        document.getElementById('amount').addEventListener('input', function () {
+            let amount = parseFloat(this.value);
+            let vat = amount * 0.02;
+            let total = amount + vat;
+
+            document.getElementById('vat').value = vat.toFixed(2);
+            document.getElementById('total').value = total.toFixed(2);
+        });
+
+        document.getElementById('paymentForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            alert('Form submitted successfully!');
+            // You can add logic here to send form data to the backend if needed
+        });
+    </script>
+</body>
+
+</html>

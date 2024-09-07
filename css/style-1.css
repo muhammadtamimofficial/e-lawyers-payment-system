@@ -1,0 +1,150 @@
+/* General Styles */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #cce7ff, #99c2ff); /* Light Blue Gradient */
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000; /* Change text color to black for contrast */
+}
+
+/* Form Container */
+form {
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px;
+    width: 400px;
+    box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.2);
+    color: #000;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+form h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #000;
+    font-size: 28px;
+}
+
+form::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(from 180deg, #cce7ff, #99c2ff, #cce7ff);
+    z-index: -1;
+    animation: rotate 8s linear infinite;
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(1turn);
+    }
+}
+
+/* Floating Labels with Better Alignment */
+.input-container {
+    position: relative;
+    margin-bottom: 35px;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 5px;
+}
+
+.input-container input {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.7); /* Darker underline for visibility */
+    background: transparent;
+    color: #000;
+    font-size: 18px;
+    transition: border-bottom 0.3s ease-in-out;
+}
+
+.input-container input:focus, .input-container input:not(:placeholder-shown) {
+    border-bottom: 2px solid #000000; /* Black focus color */
+    outline: none;
+}
+
+.input-container label {
+    color: rgba(0, 0, 0, 0.8); /* Black text for better readability */
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+}
+
+.input-container input:focus + label, 
+.input-container input:not(:placeholder-shown) + label {
+    font-size: 14px;
+    color: #000;
+    transform: translateY(-25px);
+}
+
+/* Submit Button */
+button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 50px;
+    background: #99c2ff; /* Light Blue Button */
+    font-size: 18px;
+    color: #000;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+button:hover {
+    background: #cce7ff; /* Even lighter blue on hover */
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    form {
+        width: 90%;
+        padding: 30px;
+    }
+
+    form h1 {
+        font-size: 22px;
+    }
+
+    button {
+        font-size: 16px;
+        padding: 12px;
+    }
+
+    input {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    form {
+        width: 95%;
+        padding: 20px;
+    }
+
+    form h1 {
+        font-size: 18px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    input {
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment with VAT</title>
+    <link rel="stylesheet" href="css/style-1.css">
+</head>
+
+<body>
+    <form id="paymentForm">
+        <h1>Bkash Payment Form</h1>
+
+        <div class="input-container">
+            <input type="text" id="name" name="name" required placeholder=" ">
+            <label for="name">Name</label>
+        </div>
+
+        <div class="input-container">
+            <input type="text" id="phone" name="phone" required placeholder=" ">
+            <label for="phone">Phone</label>
+        </div>
+
+        <div class="input-container">
+            <input type="number" id="amount" name="amount" required placeholder=" ">
+            <label for="amount">Payment Amount ($)</label>
+        </div>
+
+        <div class="input-container">
+            <input type="number" id="vat" name="vat" readonly placeholder=" ">
+            <label for="vat">VAT (2%)</label>
+        </div>
+
+        <div class="input-container">
+            <input type="number" id="total" name="total" readonly placeholder=" ">
+            <label for="total">Total Amount</label>
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        document.getElementById('amount').addEventListener('input', function () {
+            let amount = parseFloat(this.value);
+            let vat = amount * 0.02;
+            let total = amount + vat;
+
+            document.getElementById('vat').value = vat.toFixed(2);
+            document.getElementById('total').value = total.toFixed(2);
+        });
+
+        document.getElementById('paymentForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            alert('Form submitted successfully!');
+        });
+    </script>
+</body>
+
+</html>
